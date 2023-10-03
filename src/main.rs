@@ -48,9 +48,8 @@ fn main() {
     hns.dump_layer_info();
     println!(" parallel hnsw data nb point inserted {:?}", hns.get_nb_point());
     
-    let mut line = String::new();
     let stdin = io::stdin();
-
+    let mut line = String::new();
     println!("ENTER PRODUCT ID");
     while let Ok(_) = stdin.lock().read_line(&mut line) {
         if let Some(index) = key_lookup.get(line.trim()) {
@@ -72,9 +71,9 @@ fn main() {
             println!("\n\nLookup took {}μs", cpu_time.as_micros());
             println!("ENTER PRODUCT ID");
         } else {
-            println!("NOT FOUND!");
+            println!("NOT FOUND! {}", line.trim());
         }
-        
+        line.clear();
     }  
 
 
